@@ -6,6 +6,14 @@ import 'package:flutter/material.dart';
 import 'package:khartoumport/SignIn.dart';
 
 import 'package:khartoumport/homepage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:khartoumport/main.dart';
+
+   void main()=>{
+     WidgetsBindingObserver.ensureInitialized;
+     Firebase.initializeApp();
+     runApp(MyApp);
+   };
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -15,6 +23,8 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+
+   await Firebase.initializeapp();
   final FirebaseAuth _auth =  FirebaseAuth.instance;
   final _formkey = GlobalKey<FormState>();
 
