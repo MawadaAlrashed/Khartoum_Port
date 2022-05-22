@@ -17,11 +17,13 @@ class _ReserveState extends State<Reserve> {
   Widget build(BuildContext context) {
 
      return Scaffold(
+           backgroundColor:Colors.black12,
+
          appBar: AppBar(
            backgroundColor: Colors.grey,
            leading: FlatButton.icon(
              color:Colors.lightBlueAccent,
-             icon: Icon(Icons.arrow_back),
+             icon: Icon(Icons.logout),
              label: Text(
                "رجوع",
                style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
@@ -52,15 +54,15 @@ class _ReserveState extends State<Reserve> {
            title: Text(''),
          ),
          body:Center(
-            child: Container(
+            child:Container(
               width: 300,
-              height: 400,
+              height: 200,
               padding: new EdgeInsets.all(10.0),
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
-                  color: Colors.black12,
+                  color: Colors.white60,
                   elevation: 10,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -68,33 +70,24 @@ class _ReserveState extends State<Reserve> {
                         const ListTile(
                               leading: Icon(Icons.album, size: 60),
                               title: Text(
-                                  'Sonu Nigam',
+                                  'فواصل',
                                   style: TextStyle(fontSize: 30.0)
                               ),
                               subtitle: Text(
-                              'Best of Sonu Nigam Music.',
+                              'فواصل .....السفر المريح',
                       style: TextStyle(fontSize: 18.0)
                   ),
                 ),
                      ButtonBar(
                             children: <Widget>[
                               RaisedButton(
-                                child: const Text('حجز فردي'),
+                                child: const Text('تفاصيل'),
                                 onPressed: () {
                                   Navigator.push(context, MaterialPageRoute(
                                       builder: (Context)=> Time()
                                   )
                                   );
                                 },
-                              ),
-                              RaisedButton(
-                                child: const Text('مجموعة'),
-                                onPressed: () {
-                                    Navigator.push(context, MaterialPageRoute(
-                                    builder: (Context)=> Time()
-                                  )
-                                  );
-                                  },
                               ),
                             ],
                           ),

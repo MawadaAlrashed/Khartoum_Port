@@ -1,9 +1,10 @@
 // ignore_for_file: unused_label
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:khartoumport/SignIn.dart';
-//import 'package:portsudan/Services/auth.dart';
+import 'package:khartoumport/Services/auth.dart';
 import 'package:khartoumport/homepage.dart';
 
 class LogIn extends StatefulWidget {
@@ -14,8 +15,7 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
-
-  //final AuthSerice _auth = AuthSerice();
+  final FirebaseAuth _auth =  FirebaseAuth.instance;
   final _formkey = GlobalKey<FormState>();
 
 
@@ -145,21 +145,17 @@ class _LogInState extends State<LogIn> {
                           style: TextStyle(color: Colors.white,
                               fontWeight: FontWeight.bold),
                         ),
-                        onPressed: () {
+                        /*onPressed: () {
                            Navigator.push(context, MaterialPageRoute(
                            builder: (Context)=> home()
                           )
                           );
-                            },
+                            },*/
 
-                      /* onPressed:() async {
-                      if (_formkey.currentState!.validate()) {
-                        dynamic result = await _auth.SingInWithemailAndPassword(email, password)
-                        if (result == null) {
-                          setState(() => error = 'الايميل او كلمة السر غير صحيحة');
-                        }
-                      }
-                    }*/
+                       onPressed:() async {
+                         SingInWithemailAndPassword(
+                                 EmailController.text, PasswordController.text);
+                    }
                     ),
                   ),
                 ),
@@ -191,9 +187,43 @@ class _LogInState extends State<LogIn> {
             ),
           ),
         ),
-      ),
+      )
 
     ); // This trailing
   }
+  void  SingInWithemailAndPassword(String email, String password) async {
+    try {
+       await _auth.signInWithEmailAndPassword(
+          email: email, password: password).then((uid)=>{
+         Navigator.of(context).pushReplacement(
+             MaterialPageRoute(builder: (context)=>home()))
+       });
+    }
+    on FirebaseAuthException catch(error) {
 
-}
+      switch(error.code)
+      {
+        case "invalid-email":
+          errormesssage= "";
+          break;
+        case "wrong-password":
+          errormesssage= "كلمة السر غير صحيحة";
+          break;
+        case "user-not-found":
+          errormesssage= "";
+          break;
+        case "user-disabled":
+          errormesssage= "";
+          break;
+        case "operation-not-allowed":
+          errormesssage= "";
+          break;
+        default:
+          "حدث خطأ غير معروف";
+      };
+      print(error.code);
+
+    }//onfireexception
+  }
+    }
+  }

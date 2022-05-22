@@ -27,14 +27,14 @@ class _MyFormState extends State<MyForm> {
           backgroundColor: Colors.grey,
           leading: FlatButton.icon(
             color:Colors.lightBlueAccent,
-            icon: Icon(Icons.arrow_back),
+            icon: Icon(Icons.logout),
             label: Text(
               "رجوع",
               style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
             ),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(
-                  builder: (Context) => home()
+                  builder: (Context) => Time()
               )
               );
             },

@@ -1,9 +1,15 @@
+import 'dart:js';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:khartoumport/LogIn.dart';
-//import 'package:portsudan/Services/auth.dart';
+import 'package:khartoumport/Services/auth.dart';
 import 'package:khartoumport/homepage.dart';
 
+import 'Models/UserModel.dart';
+final FirebaseAuth _auth =  FirebaseAuth.instance;
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -15,14 +21,11 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
 
   final _formkey =GlobalKey<FormState>();
-//  final AuthSerice _auth = AuthSerice();
+ final AuthSerice _auth = AuthSerice();
 
   final EmailController = new TextEditingController();
   final PasswordController = new TextEditingController();
 
-  String email='';
-  String password='';
-  String error ='';
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -88,11 +91,11 @@ class _SignInState extends State<SignIn> {
                       border: OutlineInputBorder(),
                       hintText: "ادخل الايميل",
                     ),
-                    onChanged: (val){
+                    /*onChanged: (val){
                       setState(() {
                         email=val;
                       });
-                    },
+                    },*/
 
                   ),
                 ),
@@ -114,11 +117,11 @@ class _SignInState extends State<SignIn> {
                       labelText: "كلمة السر",
                       border: OutlineInputBorder(),
                     ),
-                    onChanged: (val){
+                    /*onChanged: (val){
                       setState(()  {
                         password= val;
                       });
-                    },
+                    },*/
                   ),
                 ),
                 Padding(
@@ -136,21 +139,18 @@ class _SignInState extends State<SignIn> {
                        "انشاء",
                       style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
                        ),
-                     /* onPressed: () async{
-                      if (_formkey.currentState!.validate()){
-                      dynamic result = await _auth.RegesterWithemailAndPassword(email, password);
-                      if(result== null){
-                        setState(()=> error =' كلمة السر غير صحيحة' );
-                      }
+                      onPressed: () async{
+                          RegesterWithemailAndPassword(
+                          EmailController.text, PasswordController.text);
+
                      }
-                    },
-                    */
-                      onPressed: () {
+
+                     /* onPressed: () {
                           Navigator.push(context, MaterialPageRoute(
                            builder: (Context)=> LogIn()
                           )
                           );
-                      },
+                      },*/
                   ),
                   ),
                 ),
@@ -160,6 +160,56 @@ class _SignInState extends State<SignIn> {
         ),
       ),
 
-    ) ;// This tr
+    ) ;
   }
+
+    void RegesterWithemailAndPassword(String email, String password) async {
+    try {
+        await _auth.createUserWithEmailAndPassword(
+          email: email, password: password).then((value)=>{postToFireStore()}).catchError((e){});
+
+    } on FirebaseAuthException catch(error) {
+
+      switch(error.code)
+      {
+        case "invalid-email":
+          errormesssage= "";
+          break;
+        case "wrong-password":
+          errormesssage= "كلمة السر غير صحيحة";
+          break;
+        case "user-not-found":
+          errormesssage= "";
+          break;
+        case "user-disabled":
+          errormesssage= "";
+          break;
+        case "operation-not-allowed":
+          errormesssage= "";
+          break;
+        default:
+          "حدث خطأ غير معروف";
+      };
+      return null;
+    }
+  }
+    postToFireStore() async{
+    FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+    User? user =_auth.currentUser;
+
+    UserModel userModel =UserModel();
+    userModel.uid= user!.uid;
+    userModel.email= user!.email;
+
+
+    await firebaseFirestore.collection("user").doc(user.uid).set(userModel.tomap());
+    Navigator.pushAndRemoveUntil(
+        (context),
+        MaterialPageRoute(builder: (context)=> home()),
+            (route) => false);
+
+  }
+
+// This tr
+
 }

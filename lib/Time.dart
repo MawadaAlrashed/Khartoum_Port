@@ -17,7 +17,7 @@ class _TimeState extends State<Time> {
         backgroundColor: Colors.grey,
         leading: FlatButton.icon(
           color:Colors.lightBlueAccent,
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.logout),
           label: Text(
             "رجوع",
             style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
@@ -47,16 +47,17 @@ class _TimeState extends State<Time> {
         ],
         title: Text(''),
       ),
-      body: Center(
+      body: SingleChildScrollView(
+       child: Center(
         child: Container(
           width:400,
-          height: 800,
+          height: 600,
           padding: new EdgeInsets.all(10.0),
           child: Card(
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15.0),
             ),
-            color: Colors.black12,
+            color: Colors.white70,
             elevation: 10,
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -295,7 +296,10 @@ class _TimeState extends State<Time> {
               ],
             ),
           ),
-        )
+        ),
+       ),
+
+
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.blue,

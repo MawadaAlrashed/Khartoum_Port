@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "24691422729",
+    "project_id": "khartoum-port",
+    "storage_bucket": "khartoum-port.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24691422729:android:a06f25b3519f021627ead8",
+        "android_client_info": {
+          "package_name": "com.example.khartoumport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24691422729-1l4vtepqbruna7uhkieskj9kq5hkmp68.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI8k1JIDT2PZCGcZfdne2onN1VIZPyrlQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24691422729-1l4vtepqbruna7uhkieskj9kq5hkmp68.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

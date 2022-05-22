@@ -43,7 +43,7 @@ class _homeState extends State<home> {
                 margin: EdgeInsets.only(bottom: 6.0),
                 decoration:BoxDecoration(
                     shape: BoxShape.rectangle,
-                    color: Colors.grey
+                    color: Colors.white60
               ) ,
               child:ListTile(
                leading: CircleAvatar(
