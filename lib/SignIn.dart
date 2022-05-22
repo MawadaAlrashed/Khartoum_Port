@@ -5,11 +5,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:khartoumport/LogIn.dart';
-import 'package:khartoumport/Services/auth.dart';
 import 'package:khartoumport/homepage.dart';
 
 import 'Models/UserModel.dart';
 final FirebaseAuth _auth =  FirebaseAuth.instance;
+String? errormesssage;
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -21,7 +21,6 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
 
   final _formkey =GlobalKey<FormState>();
- final AuthSerice _auth = AuthSerice();
 
   final EmailController = new TextEditingController();
   final PasswordController = new TextEditingController();
@@ -203,10 +202,10 @@ class _SignInState extends State<SignIn> {
 
 
     await firebaseFirestore.collection("user").doc(user.uid).set(userModel.tomap());
-    Navigator.pushAndRemoveUntil(
+   /* Navigator.pushAndRemoveUntil(
         (context),
         MaterialPageRoute(builder: (context)=> home()),
-            (route) => false);
+            (route) => false);*/
 
   }
 

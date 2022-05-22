@@ -4,7 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:khartoumport/SignIn.dart';
-import 'package:khartoumport/Services/auth.dart';
+
 import 'package:khartoumport/homepage.dart';
 
 class LogIn extends StatefulWidget {
@@ -226,4 +226,5 @@ class _LogInState extends State<LogIn> {
     }//onfireexception
   }
     }
-  }
+
+
