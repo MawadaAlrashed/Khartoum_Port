@@ -123,14 +123,16 @@ class _LogInState extends State<LogIn> {
                       labelText: "كلمة السر",
                       border: OutlineInputBorder(),
                     ),
-                    validator: (val) {
-                              if (val!.isEmpty){
-                              return 'ادخل كلمة سر لا تقل عن 6 احرف';
-                              }
+                    validator: (value) {
+                              if (value!.isEmpty){
+                              return 'ادخل كلمة سر لا تقل عن 6 احرف';}
+                              if(! RegExp("^[a-zA-Z0-9+_.-]+)@[a-zA-Z0-9.-]+[a-z]").hasMatch(value))
+                              {return "الرجاء ادخال ايميل متحقق";}
+
                               return null;
                               },
-                    onSaved: (vlaue){
-                       PasswordController.text = vlaue!;
+                    onSaved: (value){
+                       PasswordController.text = value!;
                     },
 
                     /*onChanged: (val) {
@@ -215,7 +217,7 @@ class _LogInState extends State<LogIn> {
       switch(error.code)
       {
         case "invalid-email":
-          errormesssage= "";
+          errormesssage= "هذا الايميل غير موجود";
           break;
         case "wrong-password":
           errormesssage= "كلمة السر غير صحيحة";

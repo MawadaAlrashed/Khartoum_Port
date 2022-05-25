@@ -98,7 +98,10 @@ class _HadabyState extends State<Hadaby> {
                               );
                             },
 
-                            child: const Text('تفاصيل'),
+                            child: Text('تفاصيل', style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15
+                            ),),
                           ),
                         ),),
                     ],

@@ -90,7 +90,10 @@ class _ExpressState extends State<Express> {
 
 
                           child:FlatButton(
-                            child:  Text('تفاصيل'),
+                            child: Text('تفاصيل', style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15
+                            ),),
                             onPressed: () {
                               Navigator.push(context, MaterialPageRoute(
                                   builder: (Context) => Time()

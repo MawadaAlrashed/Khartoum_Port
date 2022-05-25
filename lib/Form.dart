@@ -106,8 +106,8 @@ class _MyFormState extends State<MyForm> {
                               child: TextFormField(
                               controller: PhoneController,
                               keyboardType: TextInputType.number,
-                              validator: (val){
-                                 if(val!.isEmpty){
+                              validator: (value){
+                                 if(value!.isEmpty){
                                   return "الرجاء ادخال رقم الهاتف";
                                   }
                                 return null;
@@ -133,8 +133,8 @@ class _MyFormState extends State<MyForm> {
                     child: TextFormField(
                       controller: NationalNumberController,
                       keyboardType: TextInputType.number,
-                      validator: (val){
-                        if(val!.isEmpty){
+                      validator: (value){
+                        if(value!.isEmpty){
                           return "الرجاء ادخال الرقم الوطني";
                         }
                         return null;
@@ -159,8 +159,8 @@ class _MyFormState extends State<MyForm> {
                     child: TextFormField(
                       controller: LocationController,
                       keyboardType: TextInputType.text,
-                      validator: (val){
-                        if(val!.isEmpty){
+                      validator: (value){
+                        if(value!.isEmpty){
                           return "الرجاء  ادخال مكان السكن";
                         }
                         return null;
