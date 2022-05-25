@@ -3,9 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:khartoumport/LogIn.dart';
 import 'package:khartoumport/LogIn.dart';
 import 'package:khartoumport/homepage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
+//import "package:flutter_cli/flutterfire_cli.dart";
+//import 'firebase_options.dart';
+import 'generated_plugin_registrant.dart';
+import 'package:khartoumport/generated_plugin_registrant.dart';
+import 'package:khartoumport/config/config.dart';
+//import { initializeApp } from "firebase/app";
+//import { getAnalytics } from "firebase/analytics";
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    // Replace with actual values
+    options: FirebaseOptions(
+      apiKey: "AIzaSyDEzgC0Yjy8D4S5Fh4iMG8SMk57v92hsB0",
+      appId: "1:24691422729:web:7b7b97b84929d5c627ead8",
+      messagingSenderId: "24691422729",
+      projectId: "khartoum-port",
+    ),
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -15,15 +35,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ميناء الخرطوم البري',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: LogIn()
-          );
-
+        title: 'ميناء الخرطوم البري',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        debugShowCheckedModeBanner: false,
+        home: const LogIn());
   }
 }
 

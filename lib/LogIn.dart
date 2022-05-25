@@ -9,6 +9,7 @@ import 'package:khartoumport/homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:khartoumport/main.dart';
 
+
    void main() async{
      WidgetsFlutterBinding.ensureInitialized;
       await Firebase.initializeApp();
@@ -31,9 +32,7 @@ class _LogInState extends State<LogIn> {
   final EmailController = new TextEditingController();
   final PasswordController = new TextEditingController();
 
-  String email = '';
-  String password = '';
-  String error = '';
+
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +61,8 @@ class _LogInState extends State<LogIn> {
           ],
           title: Text('تسجيل الدخول'),
         ),
-        body: Container(
+        body:SingleChildScrollView(
+        child: Container(
 
           padding: EdgeInsets.all(20.0),
           decoration: BoxDecoration(
@@ -162,8 +162,9 @@ class _LogInState extends State<LogIn> {
                             },*/
 
                        onPressed:() async {
-                         SingInWithemailAndPassword(
-                                 EmailController.text, PasswordController.text);
+                         if(_formkey.currentState!.validate())
+                         {SingInWithemailAndPassword(
+                                 EmailController.text, PasswordController.text);}
                     }
                     ),
                   ),
@@ -196,6 +197,7 @@ class _LogInState extends State<LogIn> {
             ),
           ),
         ),
+        )
       )
 
     ); // This trailing
@@ -219,13 +221,13 @@ class _LogInState extends State<LogIn> {
           errormesssage= "كلمة السر غير صحيحة";
           break;
         case "user-not-found":
-          errormesssage= "";
+          errormesssage= "هذا المستخدم غير موجود";
           break;
         case "user-disabled":
-          errormesssage= "";
+          errormesssage= "هذا المستخدم محظور";
           break;
         case "operation-not-allowed":
-          errormesssage= "";
+          errormesssage= "هذه العملية غير مسمحة";
           break;
         default:
           "حدث خطأ غير معروف";

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:khartoumport/Time.dart';
 import 'package:khartoumport/homepage.dart';
@@ -190,12 +191,24 @@ class _MyFormState extends State<MyForm> {
                         child: RaisedButton(
                           color: Colors.blue,
                           child:Container(
+                            width: 30,
+                            height: 30,
                             child: Text('حجز', style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 15
                             ),),
                           ),
-                          onPressed: (){
+                          onPressed: () async {
+                            if(_formkey.currentState!.validate())
+                            await FirebaseFirestore.instance.collection("Fawasiltickett").add(
+                                {
+                                  "name":NameController.text,
+                                  "phone":PhoneController.text,
+                                  "nationalNo":NationalNumberController.text,
+                                  "location":LocationController.text,
+                                 // "busNo":
+
+                                });
                             Navigator.push(context, MaterialPageRoute(
                                 builder: (Context)=> home()
                             )

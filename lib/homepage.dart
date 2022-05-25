@@ -328,11 +328,11 @@ class _homeState extends State<home> {
           ],
         ),
       ) ,
-      floatingActionButton: FloatingActionButton(
+      /*floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.redAccent,
         child:Icon(Icons.add),
         onPressed: (){},
-      ),
+      ),*/
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:khartoumport/Reserve.dart';
+import 'package:khartoumport/Screens/Bus/Fawasil.dart';
 
+import 'package:khartoumport/Screens/Bus/Express.dart';
+import 'package:khartoumport/Screens/Bus/Hadabai.dart';
+
+import 'Screens/Bus/Fawasil.dart';
 import 'homepage.dart';
 
 
@@ -76,7 +80,7 @@ class _StateBus extends State<Bus> {
                                   title: Text('فواصل'),
                                   onTap: (){
                                   Navigator.push(context, MaterialPageRoute(
-                                   builder: (Context) => Reserve()
+                                   builder: (Context) => Fawasil()
                                     )
                                     );
                                  }
@@ -97,7 +101,7 @@ class _StateBus extends State<Bus> {
                         title: Text('حدباي'),
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(
-                              builder: (Context) => Reserve()
+                              builder: (Context) => Hadaby()
                           )
                           );
                         }
@@ -118,7 +122,7 @@ class _StateBus extends State<Bus> {
                         title: Text('اكسبرس'),
                         onTap: (){
                           Navigator.push(context, MaterialPageRoute(
-                              builder: (Context) => Reserve()
+                              builder: (Context) => Express()
                           )
                           );
                         }

@@ -6,8 +6,17 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:khartoumport/LogIn.dart';
 import 'package:khartoumport/homepage.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'Models/UserModel.dart';
+import 'main.dart';
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized;
+  await Firebase.initializeApp();
+  runApp(MyApp());
+}
+
 final FirebaseAuth _auth =  FirebaseAuth.instance;
 String? errormesssage;
 
@@ -50,7 +59,9 @@ class _SignInState extends State<SignIn> {
           ],
           title: Text('انشاء حساب'),
         ),
-        body: Container(
+        body:
+        SingleChildScrollView(
+          child: Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
@@ -139,8 +150,11 @@ class _SignInState extends State<SignIn> {
                       style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),
                        ),
                       onPressed: () async{
+                        if(_formkey.currentState!.validate()){
                           RegesterWithemailAndPassword(
                           EmailController.text, PasswordController.text);
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (Context)=> home()));}
 
                      }
 
@@ -157,6 +171,7 @@ class _SignInState extends State<SignIn> {
             ),
           ),
         ),
+          )
       ),
 
     ) ;
@@ -169,6 +184,7 @@ class _SignInState extends State<SignIn> {
 
     } on FirebaseAuthException catch(error) {
 
+
       switch(error.code)
       {
         case "invalid-email":
@@ -178,13 +194,13 @@ class _SignInState extends State<SignIn> {
           errormesssage= "كلمة السر غير صحيحة";
           break;
         case "user-not-found":
-          errormesssage= "";
+          errormesssage= "هذا المستخدم غير موجود";
           break;
         case "user-disabled":
-          errormesssage= "";
+          errormesssage= "هذا المستخدم محظور";
           break;
         case "operation-not-allowed":
-          errormesssage= "";
+          errormesssage= "هذه العملية غير مسمحة";
           break;
         default:
           "حدث خطأ غير معروف";
@@ -199,15 +215,17 @@ class _SignInState extends State<SignIn> {
     UserModel userModel =UserModel();
     userModel.uid= user!.uid;
     userModel.email= user!.email;
+    userModel.password= user!.hashCode as String?;
+
 
 
     await firebaseFirestore.collection("user").doc(user.uid).set(userModel.tomap());
    /* Navigator.pushAndRemoveUntil(
         (context),
         MaterialPageRoute(builder: (context)=> home()),
-            (route) => false);*/
+            (route) => false);
 
-  }
+  */}
 
 // This tr
 

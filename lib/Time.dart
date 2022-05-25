@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:khartoumport/Form.dart';
+import 'package:khartoumport/Screens/Bus/Hadabai.dart';
 import 'package:khartoumport/homepage.dart';
 class Time extends StatefulWidget {
   const Time({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _TimeState extends State<Time> {
           ),
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(
-                builder: (Context) => home()
+                builder: (Context) => Hadaby()
             )
             );
           },
@@ -118,7 +119,8 @@ class _TimeState extends State<Time> {
 
                          child: const Text('6:00 ص'),
                   ),
-                ),),
+                 ),
+                   ),
                    Padding(
                      padding: EdgeInsets.all(20.0),
                      child: Container(
@@ -135,11 +137,12 @@ class _TimeState extends State<Time> {
                             builder: (Context) => MyForm()
                         )
                         );
-                      },
+                       },
 
                          child: const Text('8:00 ص'),
                     ),
-                  ),),
+                  ),
+                   ),
                    Padding(
                      padding: EdgeInsets.all(20.0),
                      child: Container(
@@ -151,16 +154,17 @@ class _TimeState extends State<Time> {
 
                        child:FlatButton(
 
-                      onPressed: () {
+                        onPressed: () {
                         Navigator.push(context, MaterialPageRoute(
                             builder: (Context) => MyForm()
                         )
                         );
-                      },
+                        },
 
                           child: const Text('10:00 ص'),
                     ),
-                  ),),
+                    ),
+                   ),
                ],
                ),
                 Divider(
@@ -218,9 +222,9 @@ class _TimeState extends State<Time> {
                             builder: (Context) => MyForm()
                         )
                         );
-                      },
+                         },
 
-                      child: const Text('3:00 عصرا'),
+                         child: const Text('3:00 عصرا'),
                     ),
                   ),),
                     Padding(
@@ -239,15 +243,15 @@ class _TimeState extends State<Time> {
                             builder: (Context) => MyForm()
                         )
                         );
-                      },
+                         },
 
-                      child: const Text('6:00 م'),
+                         child: const Text('6:00 م'),
                     ),
                   ),),
                   ],
                  ),
 
-                ButtonBar(
+               /* ButtonBar(
                   children: <Widget>[
                     Padding(
                       padding: EdgeInsets.all(20.0),
@@ -292,7 +296,7 @@ class _TimeState extends State<Time> {
                         ),
                       ),),
                   ],
-                ),
+                ),*/
               ],
             ),
           ),
