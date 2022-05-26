@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'StateList.dart';
+
+import 'Screens/BusList.dart';
+//import 'Screens/StateList.dart';
 class home extends StatefulWidget {
   const home({Key? key}) : super(key: key);
 
@@ -53,7 +55,7 @@ class _homeState extends State<home> {
                 title: Text('عطبرة'),
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(
-                        builder: (Context) => Bus()
+                        builder: (Context) => BusList()
                     )
                     );
                   }
@@ -72,12 +74,12 @@ class _homeState extends State<home> {
                   radius: 26.0,
                   backgroundImage: AssetImage('assets/Kasalla.png'),
                 ),
-                onTap: (){
+               /* onTap: (){
                   Navigator.push(context, MaterialPageRoute(
                       builder: (Context) => Bus()
                   )
                   );
-                    },
+                    },*/
               ),),
               Container(
                 margin: EdgeInsets.only(bottom: 6.0),
@@ -92,12 +94,12 @@ class _homeState extends State<home> {
                  radius: 26.0,
                  backgroundImage: AssetImage('assets/El-Fasher.png'),
                   ),
-                onTap: (){
+               /* onTap: (){
               Navigator.push(context, MaterialPageRoute(
                   builder: (Context) => Bus()
               )
               );
-              },
+              },*/
           ),
         ),
 
@@ -114,12 +116,12 @@ class _homeState extends State<home> {
                   radius: 26.0,
                   backgroundImage: AssetImage('assets/El-Gaddaref.png'),
                 ),
-                onTap: (){
+                /*onTap: (){
                   Navigator.push(context, MaterialPageRoute(
                       builder: (Context) => Bus()
                   )
                   );
-                  },
+                  },*/
               ),
             ),
             Container(
@@ -135,12 +137,12 @@ class _homeState extends State<home> {
                     radius: 26.0,
                     backgroundImage: AssetImage('assets/Halfa.png'),
                   ),
-                onTap: (){
+               /* onTap: (){
                   Navigator.push(context, MaterialPageRoute(
                       builder: (Context) => Bus()
                   )
                   );
-                  },
+                  },*/
                 ),
             ),
               Container(
@@ -155,12 +157,12 @@ class _homeState extends State<home> {
                     radius: 26.0,
                     backgroundImage: AssetImage('assets/Dongola.png'),
                   ),
-                  onTap: (){
+                  /*onTap: (){
                     Navigator.push(context, MaterialPageRoute(
                         builder: (Context) => Bus()
                     )
                     );
-                    },
+                    },*/
                 ),
               ),
             Container(
@@ -176,12 +178,12 @@ class _homeState extends State<home> {
                   radius: 26.0,
                   backgroundImage: AssetImage('assets/kasalla.png'),
                 ),
-                onTap: (){
+                /*onTap: (){
                   Navigator.push(context, MaterialPageRoute(
                       builder: (Context) => Bus()
                   )
                   );
-                  },
+                  },*/
               ),
             ),
             Container(
@@ -197,12 +199,12 @@ class _homeState extends State<home> {
                   radius: 26.0,
                   backgroundImage: AssetImage('assets/Jinina.png'),
                 ),
-                onTap: (){
+                /*onTap: (){
                   Navigator.push(context, MaterialPageRoute(
                       builder: (Context) => Bus()
                   )
                   );
-                  },
+                  },*/
               ),
             ),
             Container(
@@ -218,12 +220,12 @@ class _homeState extends State<home> {
                   radius: 26.0,
                   backgroundImage: AssetImage('assets/El-Damazeen.png'),
                 ),
-                onTap: (){
+               /* onTap: (){
                   Navigator.push(context, MaterialPageRoute(
                       builder: (Context) => Bus()
                   )
                   );
-                  },
+                  },*/
               ),
             ),
             Container(
@@ -239,12 +241,12 @@ class _homeState extends State<home> {
                   radius: 26.0,
                   backgroundImage: AssetImage('assets/Shandi.png'),
                 ),
-                onTap: (){
+               /* onTap: (){
                   Navigator.push(context, MaterialPageRoute(
                       builder: (Context) => Bus()
                   )
                   );
-                  },
+                  },*/
               ),
             ),
             Container(
@@ -260,12 +262,12 @@ class _homeState extends State<home> {
                   radius: 26.0,
                   backgroundImage: AssetImage('assets/El-Damazeen.png'),
                 ),
-                onTap: (){
+                /*onTap: (){
                   Navigator.push(context, MaterialPageRoute(
                       builder: (Context) => Bus()
                   )
                   );
-                  },
+                  },*/
               ),
             ),
                 Container(
@@ -281,12 +283,12 @@ class _homeState extends State<home> {
                       radius: 26.0,
                       backgroundImage: AssetImage('assets/El-Damazeen.png'),
                     ),
-                    onTap: (){
+                    /*onTap: (){
                       Navigator.push(context, MaterialPageRoute(
                           builder: (Context) => Bus()
                       )
                       );
-                    },
+                    },*/
                   ),
                 ),
           ]

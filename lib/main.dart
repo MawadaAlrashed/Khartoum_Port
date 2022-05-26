@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:khartoumport/LogIn.dart';
-import 'package:khartoumport/LogIn.dart';
+import 'package:khartoumport/Screens/LogIn.dart';
+import 'package:khartoumport/Screens/LogIn.dart';
 import 'package:khartoumport/homepage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';

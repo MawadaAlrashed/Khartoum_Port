@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:khartoumport/Form.dart';
-import 'package:khartoumport/StateList.dart';
-import 'package:khartoumport/Time.dart';
+import 'package:khartoumport/Screens/BusList.dart';
+import 'package:khartoumport/Screens/Forms/FawsilForm.dart';
+import 'package:khartoumport/Screens/Ticket/FawasilDetails.dart';
 import 'package:khartoumport/homepage.dart';
 import '';
-class Fawasil extends StatefulWidget {
-  const Fawasil({Key? key}) : super(key: key);
+class FawasilBus extends StatefulWidget {
+  const FawasilBus({Key? key}) : super(key: key);
 
   @override
-  State<Fawasil> createState() => _FawasilState();
+  State<FawasilBus> createState() => _FawasilBusState();
 }
 
-class _FawasilState extends State<Fawasil> {
+class _FawasilBusState extends State<FawasilBus> {
   @override
   Widget build(BuildContext context) {
 
@@ -30,7 +30,7 @@ class _FawasilState extends State<Fawasil> {
           ),
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(
-                builder: (Context) => Bus()
+                builder: (Context) => BusList()
             )
             );
           },
@@ -45,7 +45,7 @@ class _FawasilState extends State<Fawasil> {
             ),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(
-                  builder: (Context) => Bus()
+                  builder: (Context) => home()
               )
               );
             },
@@ -93,7 +93,7 @@ class _FawasilState extends State<Fawasil> {
 
                             onPressed: () {
                               Navigator.push(context, MaterialPageRoute(
-                                  builder: (Context) => Time()
+                                  builder: (Context) => FawasilDetails()
                               )
                               );
                             },

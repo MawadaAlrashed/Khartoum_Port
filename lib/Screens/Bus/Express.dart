@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:khartoumport/Form.dart';
-import 'package:khartoumport/StateList.dart';
-import 'package:khartoumport/Time.dart';
+import 'package:khartoumport/Screens/BusList.dart';
+import 'package:khartoumport/Screens/Forms/FawsilForm.dart';
+import 'package:khartoumport/Screens/Ticket/ExpressDetails.dart';
 import 'package:khartoumport/homepage.dart';
 import '';
 class Express extends StatefulWidget {
@@ -30,7 +30,7 @@ class _ExpressState extends State<Express> {
           ),
           onPressed: (){
             Navigator.push(context, MaterialPageRoute(
-                builder: (Context) => Bus()
+                builder: (Context) => BusList()
             )
             );
           },
@@ -45,7 +45,7 @@ class _ExpressState extends State<Express> {
             ),
             onPressed: (){
               Navigator.push(context, MaterialPageRoute(
-                  builder: (Context) => Bus()
+                  builder: (Context) => home()
               )
               );
             },
@@ -96,7 +96,7 @@ class _ExpressState extends State<Express> {
                             ),),
                             onPressed: () {
                               Navigator.push(context, MaterialPageRoute(
-                                  builder: (Context) => Time()
+                                  builder: (Context) => ExpressDetails()
                               )
                               );
                             },
